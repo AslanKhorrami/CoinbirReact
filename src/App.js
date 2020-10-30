@@ -1,24 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ScrollUpButton from "react-scroll-up-button";
+import "./FontAwsome/index";
+// import logo from "./logo.svg";
+import "./App.scss";
+import NavBar from "./Components/NavBar";
+import HomeTable from "./Pages/HomeTable";
+import HomeTableDescription from "./Pages/HomeTableDescription";
+import DividerSkewCC from "./Components/DividerSkewCC";
+import DividerSkewC from "./Components/DividerSkewC";
+import HomeIntroducing from "./Pages/HomeIntroducing";
+import DedicatedApp from "./Pages/DedicatedَApp";
+import WhyOfUse from "./Pages/WhyOfUse";
+import Footer from "./Components/Footer";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Crypto from "./Pages/Crypto";
+import Exchange from "./Pages/Exchange";
+import SignIn from "./Pages/SignIn";
+import SignUp from "./Pages/SignUp";
+import FAQ from "./Pages/FAQ";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ScrollUpButton />
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <HomeTable />
+            <HomeTableDescription />
+            <DividerSkewCC />
+            <HomeIntroducing />
+            <DividerSkewC />
+            <DedicatedApp />
+            <DividerSkewCC />
+            <WhyOfUse />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact-us">
+            <Contact />
+          </Route>
+          <Route path="/cryptocurrencies">
+            <Crypto />
+          </Route>
+          <Route path="/exchange">
+            <Exchange />
+          </Route>
+          <Route path="/log-in">
+            <SignIn />
+          </Route>
+          <Route path="/register">
+            <SignUp />
+          </Route>
+          <Route path="/faq">
+            <FAQ />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
     </div>
   );
 }
