@@ -19,6 +19,16 @@ import Exchange from "./Pages/Exchange";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import FAQ from "./Pages/FAQ";
+import Laws from "./Pages/Laws";
+import UserDashboard from "./Pages/UserDashboard";
+import UserWallet from "./Pages/UserWallet";
+import UserAuthentication from "./Pages/UserAuthentication";
+import UserTicket from "./Pages/UserTicket";
+import UserBankAccounts from "./Pages/UserBankAccounts";
+import UserWithdraws from "./Pages/UserWithdraws";
+import UserPurchases from "./Pages/UserPurchases";
+import UserSales from "./Pages/UserSales";
+import UserChangePassword from "./Pages/UserChangePassword";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -58,6 +68,36 @@ function App() {
           </Route>
           <Route path="/faq">
             <FAQ />
+          </Route>
+          <Route path="/laws">
+            <Laws />
+          </Route>
+          <Route exact path="/dashboard">
+            <UserDashboard />
+          </Route>
+          <Route path="/dashboard/wallet">
+            <UserWallet />
+          </Route>
+          <Route path="/dashboard/authentication">
+            <UserAuthentication />
+          </Route>
+          <Route path="/dashboard/ticket">
+            <UserTicket />
+          </Route>
+          <Route path="/dashboard/bank-accounts">
+            <UserBankAccounts />
+          </Route>
+          <Route path="/dashboard/withdraws">
+            <UserWithdraws />
+          </Route>
+          <Route path="/dashboard/purchases">
+            <UserPurchases />
+          </Route>
+          <Route path="/dashboard/sales">
+            <UserSales />
+          </Route>
+          <Route path="/dashboard/change-password">
+            <UserChangePassword />
           </Route>
         </Switch>
         <Footer />

@@ -53,6 +53,11 @@ function NavBar() {
               تماس با ما
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/dashboard">
+              پنل کاربری
+            </Link>
+          </li>
         </ul>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">

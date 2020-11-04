@@ -119,9 +119,21 @@ body {
         background-color: lightgray;
         z-index: 100;
         width: 80%;
+        overflow-y: scroll;
         hr {
           margin: 16px 20%;
           border-top: 1px solid rgba(0, 0, 0, 1);
+        }
+        .navbar-nav {
+          a {
+            color: blue;
+            font-family: "B-Titr-Bold";
+            font-size: 17px;
+          }
+          .dropdown-item {
+            text-align: right;
+            color: black;
+          }
         }
       }
       .ToggleMenuMask {
@@ -139,15 +151,6 @@ body {
       img {
         height: 60px;
         margin-left: -30px;
-      }
-    }
-    ul {
-      li {
-        a {
-          color: blue;
-          font-family: "B-Titr-Bold";
-          font-size: 17px;
-        }
       }
     }
   }
@@ -665,6 +668,62 @@ body {
       width: 50%;
     }
   }
+
+  /* Laws Page */
+  .laws-page {
+    h4 {
+      background-color: white;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 20px 20px;
+      text-align: justify;
+      font-weight: bolder;
+      margin-bottom: 0;
+      font-size: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: gold;
+      font-size: 25px;
+      margin-bottom: 50px;
+      line-height: 50px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 100px;
+      color: black;
+      background-color: white;
+      text-align: justify;
+      padding: 20px;
+      line-height: 25px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  /* Dashboard Page */
+  .dashboard-container {
+    width: 90%;
+  }
+  .dashboard {
+    margin-bottom: 30px;
+    margin-top: 100px;
+    .dashboard-nav {
+      display: none;
+      a {
+        background-color: gold;
+        color: black;
+        padding: 15px 20px;
+        margin-bottom: 2px;
+      }
+    }
+    .dashboard-area {
+      background-color: black;
+      color: gold;
+      margin-right: -2%;
+      z-index: -10;
+    }
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 576px and up) */
@@ -716,9 +775,21 @@ body {
         background-color: lightgray;
         z-index: 100;
         width: 80%;
+        overflow-y: scroll;
         hr {
           margin: 16px 20%;
           border-top: 1px solid rgba(0, 0, 0, 1);
+        }
+        .navbar-nav {
+          a {
+            color: blue;
+            font-family: "B-Titr-Bold";
+            font-size: 17px;
+          }
+          .dropdown-item {
+            text-align: right;
+            color: black;
+          }
         }
       }
       .ToggleMenuMask {
@@ -736,15 +807,6 @@ body {
       img {
         height: 60px;
         margin-left: -30px;
-      }
-    }
-    ul {
-      li {
-        a {
-          color: blue;
-          font-family: "B-Titr-Bold";
-          font-size: 17px;
-        }
       }
     }
   }
@@ -1262,6 +1324,62 @@ body {
       width: 50%;
     }
   }
+
+  /* Laws Page */
+  .laws-page {
+    h4 {
+      background-color: white;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 30px 50px;
+      text-align: justify;
+      font-weight: bolder;
+      margin-bottom: 0;
+      font-size: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: gold;
+      font-size: 30px;
+      margin-bottom: 50px;
+      line-height: 50px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 100px;
+      color: black;
+      background-color: white;
+      text-align: justify;
+      padding: 50px;
+      line-height: 2.5;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  /* Dashboard Page */
+  .dashboard-container {
+    width: 90%;
+  }
+  .dashboard {
+    margin-bottom: 30px;
+    margin-top: 100px;
+    .dashboard-nav {
+      display: none;
+      a {
+        background-color: gold;
+        color: black;
+        padding: 15px 20px;
+        margin-bottom: 2px;
+      }
+    }
+    .dashboard-area {
+      background-color: black;
+      color: gold;
+      margin-right: -2%;
+      z-index: -10;
+    }
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -1313,9 +1431,21 @@ body {
         background-color: lightgray;
         z-index: 100;
         width: 80%;
+        overflow-y: scroll;
         hr {
           margin: 16px 20%;
           border-top: 1px solid rgba(0, 0, 0, 1);
+        }
+        .navbar-nav {
+          a {
+            color: blue;
+            font-family: "B-Titr-Bold";
+            font-size: 17px;
+          }
+          .dropdown-item {
+            text-align: right;
+            color: black;
+          }
         }
       }
       .ToggleMenuMask {
@@ -1333,15 +1463,6 @@ body {
       img {
         height: 60px;
         margin-left: -30px;
-      }
-    }
-    ul {
-      li {
-        a {
-          color: blue;
-          font-family: "B-Titr-Bold";
-          font-size: 17px;
-        }
       }
     }
   }
@@ -1850,6 +1971,61 @@ body {
       display: block;
       margin: auto;
       width: 50%;
+    }
+  }
+
+  /* Laws Page */
+  .laws-page {
+    h4 {
+      background-color: white;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 30px 50px;
+      text-align: justify;
+      font-weight: bolder;
+      margin-bottom: 0;
+    }
+    h1 {
+      text-align: center;
+      color: gold;
+      padding: 80px;
+      font-size: 30px;
+      margin-bottom: 50px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 100px;
+      color: black;
+      background-color: white;
+      text-align: justify;
+      padding: 50px;
+      line-height: 2.5;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  /* Dashboard Page */
+  .dashboard-container {
+    width: 90%;
+  }
+  .dashboard {
+    margin-bottom: 30px;
+    margin-top: 100px;
+    .dashboard-nav {
+      display: none;
+      a {
+        background-color: gold;
+        color: black;
+        padding: 15px 20px;
+        margin-bottom: 2px;
+      }
+    }
+    .dashboard-area {
+      background-color: black;
+      color: gold;
+      margin-right: -2%;
+      z-index: -10;
     }
   }
 }
@@ -2396,6 +2572,60 @@ body {
       margin: auto;
     }
   }
+
+  /* Laws Page */
+  .laws-page {
+    h4 {
+      background-color: white;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 30px 50px;
+      text-align: justify;
+      font-weight: bolder;
+      margin-bottom: 0;
+    }
+    h1 {
+      text-align: center;
+      color: gold;
+      padding: 80px;
+      font-size: 34px;
+      margin-bottom: 50px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 100px;
+      color: black;
+      background-color: white;
+      text-align: justify;
+      padding: 50px;
+      line-height: 2.5;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  /* Dashboard Page */
+  .dashboard-container {
+    width: 90%;
+  }
+  .dashboard {
+    margin-bottom: 30px;
+    margin-top: 100px;
+    .dashboard-nav {
+      a {
+        background-color: gold;
+        color: black;
+        padding: 15px 20px;
+        margin-bottom: 2px;
+      }
+    }
+    .dashboard-area {
+      background-color: black;
+      color: gold;
+      margin-right: -2%;
+      z-index: -10;
+    }
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -2924,6 +3154,60 @@ body {
     img {
       display: block;
       margin: auto;
+    }
+  }
+
+  /* Laws Page */
+  .laws-page {
+    h4 {
+      background-color: white;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 30px 50px;
+      text-align: justify;
+      font-weight: bolder;
+      margin-bottom: 0;
+    }
+    h1 {
+      text-align: center;
+      color: gold;
+      padding: 80px;
+      font-size: 34px;
+      margin-bottom: 50px;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 100px;
+      color: black;
+      background-color: white;
+      text-align: justify;
+      padding: 50px;
+      line-height: 2.5;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  /* Dashboard Page */
+  .dashboard-container {
+    width: 90%;
+  }
+  .dashboard {
+    margin-bottom: 30px;
+    margin-top: 100px;
+    .dashboard-nav {
+      a {
+        background-color: gold;
+        color: black;
+        padding: 15px 20px;
+        margin-bottom: 2px;
+      }
+    }
+    .dashboard-area {
+      background-color: black;
+      color: gold;
+      margin-right: -2%;
+      z-index: -10;
     }
   }
 }

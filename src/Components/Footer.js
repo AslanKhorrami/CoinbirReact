@@ -19,9 +19,9 @@ class Footer extends React.Component {
               <a href="/about" rel="noopener noreferrer">
                 درباره ما
               </a>
-              <a href="/contact-us">تماس با ما</a>
-              <a href="/faq">سوالات متداول</a>
-              <p>قوانین سایت</p>
+              <a href="/contact-us" rel="noopener noreferrer">تماس با ما</a>
+              <a href="/faq" rel="noopener noreferrer">سوالات متداول</a>
+              <a href="/laws" rel="noopener noreferrer">قوانین سایت</a>
 
               {/* <a href="">درباره ما</a>
               <br />

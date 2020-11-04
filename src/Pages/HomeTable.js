@@ -144,8 +144,9 @@ function HomeTable() {
       {/* {Coins.map((coin, idx) => {
         return (
           <p className="left-align">
-            آخرین به روز رسانی قیمت ها:{" "}
-            {coin.CoinLogID === 394352 ? coin.CreateDate : "NULL"}
+            
+            آخرین به روز رسانی قیمت ها: {coin.TimeFa} {coin.DateFa}
+            {idx === 0 ? coin.CreateDate : ""}
           </p>
         );
       })} */}
