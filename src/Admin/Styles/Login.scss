@@ -1,0 +1,82 @@
+.container-fluid {
+  padding: 0;
+}
+.admin-common {
+  background-color: white;
+  min-height: 100vh;
+}
+
+@media (max-width: 575.98px) {
+  .AdminLoginForm {
+    max-width: 80%;
+    text-align: center;
+    margin: 160px auto 160px;
+    .form-check-input {
+      position: unset;
+      margin-left: 7px;
+    }
+    .btn {
+      min-width: 100px;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .AdminLoginForm {
+    max-width: 60%;
+    text-align: center;
+    margin: 160px auto 160px;
+    .form-check-input {
+      position: unset;
+      margin-left: 7px;
+    }
+    .btn {
+      min-width: 100px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .AdminLoginForm {
+    max-width: 40%;
+    text-align: center;
+    margin: 160px auto 160px;
+    .form-check-input {
+      position: unset;
+      margin-left: 7px;
+    }
+    .btn {
+      min-width: 100px;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .AdminLoginForm {
+    max-width: 40%;
+    text-align: center;
+    margin: 250px auto 250px;
+    .form-check-input {
+      position: unset;
+      margin-left: 7px;
+    }
+    .btn {
+      min-width: 100px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .AdminLoginForm {
+    max-width: 40%;
+    text-align: center;
+    margin: 250px auto 250px;
+    .form-check-input {
+      position: unset;
+      margin-left: 7px;
+    }
+    .btn {
+      min-width: 100px;
+    }
+  }
+}

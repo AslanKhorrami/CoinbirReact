@@ -1,0 +1,35 @@
+.admin-panel-side-navbar {
+  .container-fluid {
+    .col-lg-2 {
+      padding: 0;
+      background-color: white;
+    }
+  }
+}
+
+.navbar {
+  padding: 0;
+}
+
+.SideNavBar {
+  background-color: black;
+  max-width: 80%;
+  min-height: 100vh;
+  .navbar-brand {
+    position: absolute;
+    top: 0;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    margin-top: 90px;
+    width: 100%;
+    .nav-link {
+      color: white;
+      font-size: 20px;
+    }
+    .nav-link:hover {
+      background-color: gray;
+      color: blue;
+    }
+  }
+}
