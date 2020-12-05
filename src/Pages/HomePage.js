@@ -6,6 +6,7 @@ import DividerSkewC from "../Components/DividerSkewC";
 import HomeIntroducing from "../Components/HomeIntroducing";
 import DedicatedApp from "../Components/DedicatedَApp";
 import WhyOfUse from "../Components/WhyOfUse";
+import HeroImage from "../Components/HeroImage";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 
@@ -13,6 +14,7 @@ function HomePage() {
   return (
     <div>
       <NavBar />
+      <HeroImage />
       <HomeTable />
       <HomeTableDescription />
       <DividerSkewCC />

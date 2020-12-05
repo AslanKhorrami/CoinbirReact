@@ -17,33 +17,45 @@ function HomeTable() {
         SetCoins(JSON.parse(Response.data));
         console.log(JSON.parse(Response.data));
       });
-  }, [Coins]);
+    const Interval = setInterval(() => {
+      axios
+        .get(HOMETABLE_API)
+        .then(Response.JSON)
+        .then((Response) => {
+          SetCoins(JSON.parse(Response.data));
+          console.log(JSON.parse(Response.data));
+        });
+    }, 60000);
+    return () => clearInterval(Interval);
+  }, []);
 
   return (
     <div className="row">
-      <h1 className="HomeTableHeader">قیمت لحظه ای رمز ارزهای پایه</h1>
+      <h2 className="HomeTableHeader">قیمت لحظه ای رمز ارزهای پایه</h2>
       <div className="table-responsive">
         <table className="table table-hover">
           <thead className="thead-dark">
             <tr>
-              <th scope="col">#</th>
+              <th scope="col" className="CryptoName">
+                #
+              </th>
               <th scope="col" className="CryptoName">
                 نام رمز ارز
               </th>
               <th scope="col" className="center-align DollarPrice">
-                قیمت لحظه ای دلاری
+                قیمت دلاری
               </th>
               <th scope="col" className="center-align RialPrice">
-                قیمت لحظه ای ریالی
+                قیمت ریالی
               </th>
               <th scope="col" className="center-align Changes">
-                تغییرات یک ساعت گذشته
+                یک ساعت گذشته
               </th>
-              <th scope="col" className="center-align ltr Changes">
-                تغییرات 24 ساعت گذشته
+              <th scope="col" className="center-align ltr Changes TabletView">
+                24 ساعت گذشته
               </th>
-              <th scope="col" className="center-align ltr Changes">
-                تغییرات هفته گذشته
+              <th scope="col" className="center-align ltr Changes TabletView">
+                هفته گذشته
               </th>
               <th scope="col" className="center-align ltr Operation">
                 عملیات
@@ -56,13 +68,14 @@ function HomeTable() {
                 <th scope="row" key={coin.id}>
                   {idx + 1}{" "}
                 </th>
-                <td key={coin.id}>
+                <td key={coin.id} className="CoinName">
                   <img
                     // key={coin.id}
                     src={require(`../Images/HomeTable/${coin.Name}.png`)}
                     alt={`${coin.Name}`}
                   />
-                  &nbsp; {coin.Name}
+                  &nbsp; <span className="Symbol">{coin.Symbol}</span>{" "}
+                  {coin.Name}
                 </td>
                 <td className="center-align" key={coin.id}>
                   <NumberFormat
@@ -93,7 +106,7 @@ function HomeTable() {
                   {coin.PercentChange1h.toFixed(2)}
                 </td>
                 <td
-                  className={`center-align ltr ${
+                  className={`center-align ltr TabletView ${
                     coin.PercentChange24h > 0 ? "positive" : "negetive"
                   }`}
                   key={coin.id}
@@ -113,7 +126,7 @@ function HomeTable() {
                   {coin.PercentChange24h.toFixed(2)}
                 </td>
                 <td
-                  className={`center-align ltr ${
+                  className={`center-align ltr TabletView ${
                     coin.PercentChange7d > 0 ? "positive" : "negetive"
                   }`}
                   key={coin.id}
@@ -132,24 +145,30 @@ function HomeTable() {
                   &nbsp;
                   {coin.PercentChange7d.toFixed(2)}
                 </td>
-                <td>
-                  <button className="BuyButton">خرید</button>
-                  <button className="SellButton">فروش</button>
+                <td className="BuySellButtons">
+                  <button className="BuyButton">
+                    <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
+                    خرید
+                  </button>
+                  <button className="SellButton">
+                    <FontAwesomeIcon icon={["far", "money-bill-alt"]} />
+                    &nbsp;فروش
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      {/* {Coins.map((coin, idx) => {
-        return (
-          <p className="left-align">
-            
-            آخرین به روز رسانی قیمت ها: {coin.TimeFa} {coin.DateFa}
-            {idx === 0 ? coin.CreateDate : ""}
-          </p>
-        );
-      })} */}
+      {Coins.map((coin, idx) => {
+        if (idx === 0) {
+          return (
+            <p className="left-align">
+              آخرین به روز رسانی قیمت ها: {coin.TimeFa} {coin.DateFa}
+            </p>
+          );
+        } else return null;
+      })}
     </div>
   );
 }

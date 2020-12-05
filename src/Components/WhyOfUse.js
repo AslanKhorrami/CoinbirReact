@@ -8,7 +8,7 @@ class WhyOfUse extends React.Component {
         <Row>
           <h2>چرا باید از ارزهای دیجیتال استفاده کرد؟</h2>
         </Row>
-        <Row>
+        <Row className="ResponsiveView">
           <Col md="4" sm="12" className="clearfix">
             <img src={require("../Images/MainPage/multi-uses.png")} alt="" />
             <p>
@@ -37,7 +37,7 @@ class WhyOfUse extends React.Component {
             </p>
           </Col>
         </Row>
-        <Row>
+        <Row className="ResponsiveView">
           <Col md="4" sm="12" className="clearfix">
             <img src={require("../Images/MainPage/security.png")} alt="" />
             <p>

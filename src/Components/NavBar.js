@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Toggler from "./Toggler";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ButtonAnimated from "../Components/ButtonAnimated";
 
 function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   const ChangeBackground = () => {
-    if (window.scrollY >= 120) {
+    if (window.scrollY >= 60) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -30,46 +30,66 @@ function NavBar() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav">
           <li className="nav-item ">
-            <Link className="nav-link" to="/">
+            <NavLink className="nav-link" exact to="/" activeClassName="active">
               صفحه اصلی
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/cryptocurrencies">
+            <NavLink
+              className="nav-link"
+              to="/cryptocurrencies"
+              activeClassName="active"
+            >
               رمز ارزها
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/exchange">
+            <NavLink
+              className="nav-link"
+              to="/exchange"
+              activeClassName="active"
+            >
               صرافی کوین بیت
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/about">
+            <NavLink className="nav-link" to="/about" activeClassName="active">
               درباره ما
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/contact-us">
+            <NavLink
+              className="nav-link"
+              to="/contact-us"
+              activeClassName="active"
+            >
               تماس با ما
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard">
+            <NavLink
+              className="nav-link"
+              to="/dashboard"
+              activeClassName="active"
+            >
               پنل کاربری
-            </Link>
+            </NavLink>
           </li>
         </ul>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/register">
+            <NavLink
+              className="nav-link"
+              to="/register"
+              activeClassName="active"
+            >
               ثبت نام
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/log-in">
+            <NavLink className="nav-link" to="/log-in" activeClassName="active">
               ورود
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
