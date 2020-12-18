@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Toggler from "./Toggler";
 import { Link, NavLink } from "react-router-dom";
-import ButtonAnimated from "../Components/ButtonAnimated";
 
 function NavBar() {
   const [navbar, setNavbar] = useState(false);

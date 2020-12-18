@@ -14,13 +14,23 @@ function Crypto() {
   useEffect(() => {
     console.log(CRYPTO_PAGE_API);
     axios
-      .get(CRYPTO_PAGE_API)
+      .get(CRYPTO_PAGE_API, { Accept: "application/json" })
       .then(Response.JSON)
       .then((Response) => {
-        SetAllCoins(JSON.parse(Response.data));
-        console.log(JSON.parse(Response.data));
+        SetAllCoins(Response.data);
+        console.log(Response.data);
+        const Interval = setInterval(() => {
+          axios
+            .get(CRYPTO_PAGE_API)
+            .then(Response.JSON)
+            .then((Response) => {
+              SetAllCoins(Response.data);
+              console.log(Response.data);
+            });
+        }, 60000);
+        return () => clearInterval(Interval);
       });
-  }, [AllCoins]);
+  }, []);
   return (
     <>
       <NavBar />
@@ -57,7 +67,7 @@ function Crypto() {
               </thead>
               <tbody>
                 {AllCoins.map((coin, idx) => (
-                  <tr key={idx}>
+                  <tr key={coin.id}>
                     <th scope="row" key={coin.id}>
                       {idx + 1}{" "}
                     </th>
@@ -67,11 +77,11 @@ function Crypto() {
                       src={require(`../Images/AllCrypto/${coin.Name}.png`)}
                       alt={`${coin.Name}`}
                     /> */}
-                      &nbsp; {coin.Name}
+                      &nbsp; {coin.name}
                     </td>
                     <td className="center-align" key={coin.id}>
                       <NumberFormat
-                        value={coin.Price.toFixed(2)}
+                        value={coin.price.toFixed(2)}
                         thousandSeparator={","}
                         displayType={"text"}
                       />
@@ -79,14 +89,14 @@ function Crypto() {
                     <td className="center-align"></td>
                     <td
                       className={`center-align ltr ${
-                        coin.PercentChange1h > 0 ? "positive" : "negetive"
+                        coin.percentChange1h > 0 ? "positive" : "negetive"
                       }`}
                       key={coin.id}
                     >
                       <FontAwesomeIcon
                         icon="long-arrow-alt-up"
                         className={`${
-                          coin.PercentChange1h > 0 ? "show" : "hide"
+                          coin.percentChange1h > 0 ? "show" : "hide"
                         }`}
                         key={coin.id}
                       />{" "}
@@ -94,23 +104,23 @@ function Crypto() {
                       <FontAwesomeIcon
                         icon="long-arrow-alt-down"
                         className={`${
-                          coin.PercentChange1h < 0 ? "show" : "hide"
+                          coin.percentChange1h < 0 ? "show" : "hide"
                         }`}
                         key={coin.id}
                       />{" "}
                       &nbsp;
-                      {coin.PercentChange1h.toFixed(2)}
+                      {coin.percentChange1h.toFixed(2)}
                     </td>
                     <td
                       className={`center-align ltr ${
-                        coin.PercentChange24h > 0 ? "positive" : "negetive"
+                        coin.percentChange24h > 0 ? "positive" : "negetive"
                       }`}
                       key={coin.id}
                     >
                       <FontAwesomeIcon
                         icon="long-arrow-alt-up"
                         className={`${
-                          coin.PercentChange24h > 0 ? "show" : "hide"
+                          coin.percentChange24h > 0 ? "show" : "hide"
                         }`}
                         key={coin.id}
                       />{" "}
@@ -118,23 +128,23 @@ function Crypto() {
                       <FontAwesomeIcon
                         icon="long-arrow-alt-down"
                         className={`${
-                          coin.PercentChange24h < 0 ? "show" : "hide"
+                          coin.percentChange24h < 0 ? "show" : "hide"
                         }`}
                         key={coin.id}
                       />{" "}
                       &nbsp;
-                      {coin.PercentChange24h.toFixed(2)}
+                      {coin.percentChange24h.toFixed(2)}
                     </td>
                     <td
                       className={`center-align ltr ${
-                        coin.PercentChange7d > 0 ? "positive" : "negetive"
+                        coin.percentChange7d > 0 ? "positive" : "negetive"
                       }`}
                       key={coin.id}
                     >
                       <FontAwesomeIcon
                         icon="long-arrow-alt-up"
                         className={`${
-                          coin.PercentChange7d > 0 ? "show" : "hide"
+                          coin.percentChange7d > 0 ? "show" : "hide"
                         }`}
                         key={coin.id}
                       />{" "}
@@ -142,12 +152,12 @@ function Crypto() {
                       <FontAwesomeIcon
                         icon="long-arrow-alt-down"
                         className={`${
-                          coin.PercentChange7d < 0 ? "show" : "hide"
+                          coin.percentChange7d < 0 ? "show" : "hide"
                         }`}
                         key={coin.id}
                       />{" "}
                       &nbsp;
-                      {coin.PercentChange7d.toFixed(2)}
+                      {coin.percentChange7d.toFixed(2)}
                     </td>
                     <td>
                       <button className="BuyButton">خرید</button>

@@ -15,6 +15,8 @@ import {
 } from "reactstrap";
 
 function SignIn() {
+  document.title = "ورود کاربران";
+
   const [UserName, setUserName] = useState("");
   const [Password, setPassword] = useState("");
   const [errorMessage, seterrorMessage] = useState("");

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, NavLink } from "react-router-dom";
 
 function UserDashboardNav() {
   const [Reload, setReload] = useState(false);
@@ -26,49 +26,86 @@ function UserDashboardNav() {
       ) : (
         <ul className="nav nav-pills flex-column">
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard">
+            <NavLink
+              className="nav-link"
+              exact
+              to="/dashboard"
+              activeClassName="active-user-dashboard"
+            >
               حساب کاربری
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/wallet">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/wallet"
+              activeClassName="active-user-dashboard"
+            >
               کیف پول
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/authentication">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/authentication"
+              activeClassName="active-user-dashboard"
+            >
               احراز هویت
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/ticket">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/ticket"
+              activeClassName="active-user-dashboard"
+            >
               تیکت
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/bank-accounts">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/bank-accounts"
+              activeClassName="active-user-dashboard"
+            >
               حساب های بانکی
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/withdraws">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/withdraws"
+              activeClassName="active-user-dashboard"
+            >
               برداشت های من
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/purchases">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/purchases"
+              activeClassName="active-user-dashboard"
+            >
               خریدهای من
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/sales">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/sales"
+              activeClassName="active-user-dashboard"
+            >
               فروش های من
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/dashboard/change-password">
+            <NavLink
+              className="nav-link"
+              to="/dashboard/change-password"
+              activeClassName="active-user-dashboard"
+            >
               تغییر رمز عبور
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="#" onClick={logout}>

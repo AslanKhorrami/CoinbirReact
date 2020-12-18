@@ -1,0 +1,138 @@
+/* Dashboard Page */
+.dashboard {
+  margin-bottom: 30px;
+  margin-top: 100px;
+  span {
+    color: white;
+    margin-right: 10px;
+  }
+  .dashboard-nav {
+    z-index: 2;
+    a {
+      background-color: gold;
+      color: black;
+      padding: 15px 20px;
+      margin-bottom: 2px;
+    }
+    .active-user-dashboard {
+      background-color: blue;
+      color: white;
+      width: 105%;
+      font-size: 20px;
+    }
+  }
+  .dashboard-area {
+    background-color: black;
+    color: gold;
+    margin-right: -2%;
+    // z-index: -10;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    h1 {
+      margin: 20px auto;
+    }
+    .user-avatar {
+      margin: auto;
+      display: block;
+      border-radius: 50%;
+      max-width: 150px;
+      max-height: 150px;
+      margin-top: 2%;
+    }
+    .col-top-margin {
+      margin-top: 2%;
+      padding-right: 5%;
+    }
+    .h3-middle {
+      margin: 2% auto;
+    }
+    .Bank-Accounts-List {
+      .table-responsive {
+        margin: 2% auto 10%;
+        width: 95%;
+      }
+    }
+  }
+  .Bank-Accounts-List {
+    .table {
+      .thead-dark {
+        tr {
+          th {
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td,
+          th {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Wallet */
+.owl-carousel {
+  .owl-stage-outer {
+    direction: ltr;
+    .owl-stage {
+      display: flex;
+      flex-direction: row-reverse;
+      .owl-item {
+        .item {
+          .card {
+            img {
+              height: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .owl-dots,
+  .owl-nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  .owl-nav {
+    .owl-prev {
+      position: relative;
+      transform: rotate(180deg);
+    }
+    .owl-next {
+      position: relative;
+      transform: rotate(-180deg);
+    }
+  }
+  .owl-dots {
+    margin-bottom: 20px;
+  }
+}
+
+/* Ticket */
+
+.modal-header {
+  border-bottom: unset;
+  .close {
+    margin: -1rem auto -1rem -1rem;
+  }
+}
+
+.modal-footer {
+  border-top: unset;
+  justify-content: space-between;
+}
+
+.modal-dialog {
+  max-width: 70%;
+  .TicketTextarea {
+    width: 100%;
+  }
+}
