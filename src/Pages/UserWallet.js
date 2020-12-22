@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import { Col, Container, Row } from "reactstrap";
@@ -8,7 +8,6 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "owl.carousel/dist/owl.carousel.min.js";
-import NumberFormat from "react-number-format";
 import TablePagination from "@material-ui/core/TablePagination";
 
 function UserWallet() {

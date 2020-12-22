@@ -53,8 +53,6 @@ function Crypto() {
         });
       }
     });
-
-    console.log(SelectedCoins);
   };
 
   useEffect(() => {

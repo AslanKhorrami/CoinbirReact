@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Button, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Particles from "react-tsparticles";
 
@@ -22,7 +22,7 @@ function HeroImage() {
         <Col lg="6">
           <img
             src={require("../Images/MainPage/heroimage.gif")}
-            alt="Hero Image"
+            alt="Hero"
           ></img>
         </Col>
       </Row>

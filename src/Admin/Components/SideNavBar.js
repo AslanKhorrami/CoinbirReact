@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Styles/SideNavBar.scss";
-import { Navbar, NavDropdown, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useTransition, animated } from "react-spring";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-
 function SideNavBar() {
   //   const [ShowMenu, SetShowMenu] = useState(false);
   //   const maskTransitions = useTransition(ShowMenu, null, {
@@ -21,7 +17,7 @@ function SideNavBar() {
   return (
     <Navbar expand="lg" className="SideNavBar">
       <Link to="/admin/dashboard" className="navbar-brand">
-        <img src={require("../Images/logo.png")}></img>
+        <img src={require("../Images/logo.png")} alt="Coinbit Logo"></img>
       </Link>
       <Nav>
         <Link to="/admin/dashboard" className="nav-link">
