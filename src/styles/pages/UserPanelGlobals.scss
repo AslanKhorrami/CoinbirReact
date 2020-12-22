@@ -136,3 +136,22 @@
     width: 100%;
   }
 }
+
+/* Change Password */
+.ChangePassword {
+  form {
+    width: 100%;
+    .form-row {
+      margin: auto;
+      justify-content: center;
+      .form-group {
+        width: 50%;
+      }
+    }
+  }
+  button {
+    width: 50%;
+    margin: auto;
+    display: block;
+  }
+}

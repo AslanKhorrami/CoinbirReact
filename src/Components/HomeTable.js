@@ -65,10 +65,8 @@ function HomeTable() {
           <tbody>
             {Coins.map((coin, idx) => (
               <tr key={idx}>
-                <th scope="row" key={coin.id}>
-                  {idx + 1}{" "}
-                </th>
-                <td key={coin.id} className="CoinName">
+                <th scope="row">{idx + 1} </th>
+                <td className="CoinName">
                   <img
                     // key={coin.id}
                     src={require(`../Images/HomeTable/${coin.Name}.png`)}
@@ -77,7 +75,7 @@ function HomeTable() {
                   &nbsp; <span className="Symbol">{coin.Symbol}</span>{" "}
                   {coin.Name}
                 </td>
-                <td className="center-align" key={coin.id}>
+                <td className="center-align">
                   <NumberFormat
                     value={coin.Price.toFixed(2)}
                     thousandSeparator={","}
@@ -89,18 +87,15 @@ function HomeTable() {
                   className={`center-align ltr ${
                     coin.PercentChange1h > 0 ? "positive" : "negetive"
                   }`}
-                  key={coin.id}
                 >
                   <FontAwesomeIcon
                     icon="long-arrow-alt-up"
                     className={`${coin.PercentChange1h > 0 ? "show" : "hide"}`}
-                    key={coin.id}
                   />{" "}
                   &nbsp;
                   <FontAwesomeIcon
                     icon="long-arrow-alt-down"
                     className={`${coin.PercentChange1h < 0 ? "show" : "hide"}`}
-                    key={coin.id}
                   />{" "}
                   &nbsp;
                   {coin.PercentChange1h.toFixed(2)}
@@ -109,18 +104,15 @@ function HomeTable() {
                   className={`center-align ltr TabletView ${
                     coin.PercentChange24h > 0 ? "positive" : "negetive"
                   }`}
-                  key={coin.id}
                 >
                   <FontAwesomeIcon
                     icon="long-arrow-alt-up"
                     className={`${coin.PercentChange24h > 0 ? "show" : "hide"}`}
-                    key={coin.id}
                   />{" "}
                   &nbsp;
                   <FontAwesomeIcon
                     icon="long-arrow-alt-down"
                     className={`${coin.PercentChange24h < 0 ? "show" : "hide"}`}
-                    key={coin.id}
                   />{" "}
                   &nbsp;
                   {coin.PercentChange24h.toFixed(2)}
@@ -129,18 +121,15 @@ function HomeTable() {
                   className={`center-align ltr TabletView ${
                     coin.PercentChange7d > 0 ? "positive" : "negetive"
                   }`}
-                  key={coin.id}
                 >
                   <FontAwesomeIcon
                     icon="long-arrow-alt-up"
                     className={`${coin.PercentChange7d > 0 ? "show" : "hide"}`}
-                    key={coin.id}
                   />{" "}
                   &nbsp;
                   <FontAwesomeIcon
                     icon="long-arrow-alt-down"
                     className={`${coin.PercentChange7d < 0 ? "show" : "hide"}`}
-                    key={coin.id}
                   />{" "}
                   &nbsp;
                   {coin.PercentChange7d.toFixed(2)}

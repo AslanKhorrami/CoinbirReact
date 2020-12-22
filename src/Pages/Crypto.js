@@ -10,6 +10,52 @@ function Crypto() {
   const CRYPTO_PAGE_API = process.env.REACT_APP_CRYPTO_PAGE_API;
 
   const [AllCoins, SetAllCoins] = useState([]);
+  // const [SelectedCoins, setSelectedCoins] = useState({
+  //   id: "",
+  //   coinId: "",
+  //   name: "",
+  //   symbol: "",
+  //   ranking: "",
+  //   price: "",
+  //   volume24hUsd: "",
+  //   marketCapUsd: "",
+  //   percentChange1h: "",
+  //   percentChange24h: "",
+  //   percentChange7d: "",
+  //   lastUpdated: "",
+  //   marketCapConvert: "",
+  //   convertCurrency: "",
+  //   createDate: "",
+  //   seriesDate: "",
+  // });
+  const SelectedCoins = [];
+
+  const setSelect = (e) => {
+    e.map((i) => {
+      if (i.id === 131101) {
+        SelectedCoins.push({
+          id: i.id,
+          coinId: i.coinId,
+          name: i.name,
+          symbol: i.symbol,
+          ranking: i.ranking,
+          price: i.price,
+          volume24hUsd: i.volume24hUsd,
+          marketCapUsd: i.marketCapUsd,
+          percentChange1h: i.percentChange1h,
+          percentChange24h: i.percentChange24h,
+          percentChange7d: i.percentChange7d,
+          lastUpdated: i.lastUpdated,
+          marketCapConvert: i.marketCapConvert,
+          convertCurrency: i.convertCurrency,
+          createDate: i.createDate,
+          seriesDate: i.seriesDate,
+        });
+      }
+    });
+
+    console.log(SelectedCoins);
+  };
 
   useEffect(() => {
     console.log(CRYPTO_PAGE_API);
@@ -18,14 +64,16 @@ function Crypto() {
       .then(Response.JSON)
       .then((Response) => {
         SetAllCoins(Response.data);
-        console.log(Response.data);
+        console.log(AllCoins);
+        setSelect(Response.data);
         const Interval = setInterval(() => {
           axios
             .get(CRYPTO_PAGE_API)
             .then(Response.JSON)
             .then((Response) => {
               SetAllCoins(Response.data);
-              console.log(Response.data);
+              console.log(AllCoins);
+              setSelect(Response.data);
             });
         }, 60000);
         return () => clearInterval(Interval);
@@ -68,10 +116,8 @@ function Crypto() {
               <tbody>
                 {AllCoins.map((coin, idx) => (
                   <tr key={coin.id}>
-                    <th scope="row" key={coin.id}>
-                      {idx + 1}{" "}
-                    </th>
-                    <td key={coin.id}>
+                    <th scope="row">{idx + 1} </th>
+                    <td>
                       {/* <img
                       //   key={coin.id}
                       src={require(`../Images/AllCrypto/${coin.Name}.png`)}
@@ -79,7 +125,7 @@ function Crypto() {
                     /> */}
                       &nbsp; {coin.name}
                     </td>
-                    <td className="center-align" key={coin.id}>
+                    <td className="center-align">
                       <NumberFormat
                         value={coin.price.toFixed(2)}
                         thousandSeparator={","}
@@ -91,14 +137,12 @@ function Crypto() {
                       className={`center-align ltr ${
                         coin.percentChange1h > 0 ? "positive" : "negetive"
                       }`}
-                      key={coin.id}
                     >
                       <FontAwesomeIcon
                         icon="long-arrow-alt-up"
                         className={`${
                           coin.percentChange1h > 0 ? "show" : "hide"
                         }`}
-                        key={coin.id}
                       />{" "}
                       &nbsp;
                       <FontAwesomeIcon
@@ -106,7 +150,6 @@ function Crypto() {
                         className={`${
                           coin.percentChange1h < 0 ? "show" : "hide"
                         }`}
-                        key={coin.id}
                       />{" "}
                       &nbsp;
                       {coin.percentChange1h.toFixed(2)}
@@ -115,14 +158,12 @@ function Crypto() {
                       className={`center-align ltr ${
                         coin.percentChange24h > 0 ? "positive" : "negetive"
                       }`}
-                      key={coin.id}
                     >
                       <FontAwesomeIcon
                         icon="long-arrow-alt-up"
                         className={`${
                           coin.percentChange24h > 0 ? "show" : "hide"
                         }`}
-                        key={coin.id}
                       />{" "}
                       &nbsp;
                       <FontAwesomeIcon
@@ -130,7 +171,6 @@ function Crypto() {
                         className={`${
                           coin.percentChange24h < 0 ? "show" : "hide"
                         }`}
-                        key={coin.id}
                       />{" "}
                       &nbsp;
                       {coin.percentChange24h.toFixed(2)}
@@ -139,14 +179,12 @@ function Crypto() {
                       className={`center-align ltr ${
                         coin.percentChange7d > 0 ? "positive" : "negetive"
                       }`}
-                      key={coin.id}
                     >
                       <FontAwesomeIcon
                         icon="long-arrow-alt-up"
                         className={`${
                           coin.percentChange7d > 0 ? "show" : "hide"
                         }`}
-                        key={coin.id}
                       />{" "}
                       &nbsp;
                       <FontAwesomeIcon
@@ -154,7 +192,6 @@ function Crypto() {
                         className={`${
                           coin.percentChange7d < 0 ? "show" : "hide"
                         }`}
-                        key={coin.id}
                       />{" "}
                       &nbsp;
                       {coin.percentChange7d.toFixed(2)}
