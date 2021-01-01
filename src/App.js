@@ -35,6 +35,7 @@ import UsernameEdit from "./Admin/Pages/UsernameEdit";
 import Deposits from "./Admin/Pages/Deposits";
 import UploadedDocuments from "./Admin/Pages/UploadedDocuments";
 import Tickets from "./Admin/Pages/Tickets";
+import FavCoins from "./Admin/Pages/FavCoins";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -99,6 +100,7 @@ function App() {
             component={UploadedDocuments}
           ></Route>
           <Route path="/admin/tickets" component={Tickets}></Route>
+          <Route path="/admin/fav-coins" component={FavCoins}></Route>
         </Switch>
       </Router>
     </div>

@@ -31,28 +31,29 @@ function Crypto() {
   const SelectedCoins = [];
 
   const setSelect = (e) => {
-    e.map((i) => {
-      if (i.id === 131101) {
-        SelectedCoins.push({
-          id: i.id,
-          coinId: i.coinId,
-          name: i.name,
-          symbol: i.symbol,
-          ranking: i.ranking,
-          price: i.price,
-          volume24hUsd: i.volume24hUsd,
-          marketCapUsd: i.marketCapUsd,
-          percentChange1h: i.percentChange1h,
-          percentChange24h: i.percentChange24h,
-          percentChange7d: i.percentChange7d,
-          lastUpdated: i.lastUpdated,
-          marketCapConvert: i.marketCapConvert,
-          convertCurrency: i.convertCurrency,
-          createDate: i.createDate,
-          seriesDate: i.seriesDate,
-        });
-      }
-    });
+    console.log(e);
+    // e.map((i) => {
+    //   if (i.id === 131101) {
+    //     SelectedCoins.push({
+    //       id: i.id,
+    //       coinId: i.coinId,
+    //       name: i.name,
+    //       symbol: i.symbol,
+    //       ranking: i.ranking,
+    //       price: i.price,
+    //       volume24hUsd: i.volume24hUsd,
+    //       marketCapUsd: i.marketCapUsd,
+    //       percentChange1h: i.percentChange1h,
+    //       percentChange24h: i.percentChange24h,
+    //       percentChange7d: i.percentChange7d,
+    //       lastUpdated: i.lastUpdated,
+    //       marketCapConvert: i.marketCapConvert,
+    //       convertCurrency: i.convertCurrency,
+    //       createDate: i.createDate,
+    //       seriesDate: i.seriesDate,
+    //     });
+    //   }
+    // });
   };
 
   useEffect(() => {

@@ -8,12 +8,12 @@
 }
 
 .navbar {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .SideNavBar {
   background-color: black;
-  max-width: 80%;
+  max-width: 90%;
   min-height: 100vh;
   .navbar-brand {
     position: absolute;
@@ -30,6 +30,9 @@
     .nav-link:hover {
       background-color: gray;
       color: blue;
+    }
+    .admin-active-link {
+      color: gold;
     }
   }
 }

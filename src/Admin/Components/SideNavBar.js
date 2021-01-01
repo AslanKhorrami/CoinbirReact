@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/SideNavBar.scss";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 function SideNavBar() {
   //   const [ShowMenu, SetShowMenu] = useState(false);
   //   const maskTransitions = useTransition(ShowMenu, null, {
@@ -20,45 +20,104 @@ function SideNavBar() {
         <img src={require("../Images/logo.png")} alt="Coinbit Logo"></img>
       </Link>
       <Nav>
-        <Link to="/admin/dashboard" className="nav-link">
+        <NavLink
+          to="/admin/dashboard"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           صفحه اصلی
-        </Link>
-        <Link to="/admin/users-purchase-factor-management" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/users-purchase-factor-management"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           فاکتورهای فروش
-        </Link>
-        <Link to="/admin/cryptocurrencies" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/cryptocurrencies"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           ارزهای دیجیتال
-        </Link>
-        <Link to="/admin/tether-edit" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/tether-edit"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           ارزش تتر
-        </Link>
-        <Link to="/admin/password-edit" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/password-edit"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           تغییر رمز عبور
-        </Link>
-        <Link to="/admin/currencies-management" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/currencies-management"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           موجودی ارزها
-        </Link>
-        <Link to="/admin/commissions" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/commissions"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           کارمزدها
-        </Link>
-        <Link to="/admin/users" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/users"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           کاربران
-        </Link>
-        <Link to="/admin/users-sales-factor-management" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/users-sales-factor-management"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           فاکتورهای خرید
-        </Link>
-        <Link to="/admin/username-edit" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/username-edit"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           تغییر نام کاربری
-        </Link>
-        <Link to="/admin/deposits" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/deposits"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           درخواست های برداشت
-        </Link>
-        <Link to="/admin/uploaded-documents" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/uploaded-documents"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           اسناد بارگذاری شده
-        </Link>
-        <Link to="/admin/tickets" className="nav-link">
+        </NavLink>
+        <NavLink
+          to="/admin/tickets"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
           تیکت ها
-        </Link>
+        </NavLink>
+        <NavLink
+          to="/admin/fav-coins"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
+          کوین های منتخب
+        </NavLink>
       </Nav>
     </Navbar>
   );

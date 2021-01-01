@@ -1,5 +1,22 @@
+// Common settings among all admin panel pages
+
 .AdminPanelArea {
   background-color: white;
   padding-right: 0;
   padding-left: 0;
+
+  h1 {
+    margin: 25px auto;
+  }
+
+  form {
+    .form-group {
+      .error {
+        color: red;
+      }
+      .innputError {
+        border-color: red;
+      }
+    }
+  }
 }
