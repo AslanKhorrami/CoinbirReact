@@ -14,14 +14,6 @@ function TetherPageForm() {
     Validate
   ); // This is how we destructure custom hook we created
 
-  const handelKeyPress = (event) => {
-    let keycode = event.keycode;
-    if (keycode > 48 && keycode < 57) {
-      return true;
-    }
-    return false;
-  };
-
   function submit() {
     console.log("submited");
   }
@@ -53,7 +45,6 @@ function TetherPageForm() {
                     value={values.tetherValue}
                     autoComplete="off"
                     autoFocus={true}
-                    onKeyPress={handelKeyPress}
                   />
                   {errors.tetherValue && (
                     <p className="error">{errors.tetherValue}</p>

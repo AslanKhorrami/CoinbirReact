@@ -9,7 +9,7 @@ const useForm = (callback, Validate) => {
   const handelChange = (event) => {
     setValues({
       //   ...values, // Here, we keep the original array, and next we just update the parts we need (we have just one field yet, so we shouldnt copy original array here)
-      [event.target.name]: event.target.value, // Here, we create an object and push it to array
+      [event.target.name]: addCommas(removeNonNumeric(event.target.value)), // Here, we create an object and push it to array
     });
   };
 
@@ -20,6 +20,11 @@ const useForm = (callback, Validate) => {
     setIsSubmitting(true);
     // callback();
   };
+
+  // Formatting input number
+  const addCommas = (num) =>
+    num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const removeNonNumeric = (num) => num.toString().replace(/[^0-9]/g, "");
 
   useEffect(() => {
     //Check if there is no error and then call th callback()
