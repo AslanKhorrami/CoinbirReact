@@ -59,7 +59,7 @@ function Login() {
                     className={`${errors.email && "innputError"}`}
                     type="email"
                     name="email"
-                    placeholder="ایمیل"
+                    placeholder="نام کاربری"
                     value={loginValues.email}
                     onChange={handelChange}
                     autoComplete="off"
