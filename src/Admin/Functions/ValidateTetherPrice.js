@@ -10,5 +10,19 @@ export default function Validate(values) {
   } else if (values.tetherValue && !justNumbers.test(values.tetherValue)) {
     errors.tetherValue = "فقط عدد وارد کنید.";
   }
+  if (!values.email) {
+    errors.email = "این فیلد اجباری است!";
+  } else if (
+    !/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(
+      values.email
+    )
+  ) {
+    errors.email = "آدرس ایمیل معتبر نمی باشد!";
+  }
+  if (!values.password) {
+    errors.password = "این فیلد اجباری است!";
+  } else if (values.password.length < 8) {
+    errors.password = "رمز عبور باید بیشتر 8 کاراکتر باشد!";
+  }
   return errors; // Finally we return that object
 }

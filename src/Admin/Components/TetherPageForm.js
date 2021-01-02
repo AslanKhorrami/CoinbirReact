@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import "../Styles/AdminPanelArea.scss";
 import { Container, Row, Col } from "reactstrap";
 import "../Styles/TetherPriceEdit.scss";
@@ -13,6 +14,15 @@ function TetherPageForm() {
     submit,
     Validate
   ); // This is how we destructure custom hook we created
+
+  //   useEffect(() => {
+  //     axios
+  //       .get("https://coinbit-backend.com//api/Config/get")
+  //       .then(Response.JSON)
+  //       .then((Response) => {
+  //         console.log(Response);
+  //       });
+  //   }, []);
 
   function submit() {
     console.log("submited");

@@ -103,7 +103,7 @@ function SignIn() {
                       onChange={setpassword}
                     ></Input>
                   </FormGroup>
-                  <Button>ورود</Button>
+                  <Button type="submit">ورود</Button>
                 </Form>
                 <Row>
                   <p>

@@ -8,15 +8,15 @@
   h1 {
     margin: 25px auto;
   }
+}
 
-  form {
-    .form-group {
-      .error {
-        color: red;
-      }
-      .innputError {
-        border-color: red;
-      }
+form {
+  .form-group {
+    .error {
+      color: red;
+    }
+    .innputError {
+      border-color: red;
     }
   }
 }
