@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Styles/AdminPanelArea.scss";
 import { Container, Row, Col } from "reactstrap";
@@ -6,26 +6,55 @@ import "../Styles/TetherPriceEdit.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import SideNavBar from "../Components/SideNavBar";
-import useForm from "./useForm";
-import Validate from "../Functions/ValidateTetherPrice";
+import tetherValidate from "../Functions/ValidateTetherPrice";
 
-function TetherPageForm() {
-  const { values, handelChange, handelSubmit, errors } = useForm(
-    submit,
-    Validate
-  ); // This is how we destructure custom hook we created
+function TetherPageForm(props) {
+  const [errors, setErrors] = useState({});
+  const [tetherValues, setTetherValues] = useState({ tetherValue: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
 
-  //   useEffect(() => {
-  //     axios
-  //       .get("https://coinbit-backend.com//api/Config/get")
-  //       .then(Response.JSON)
-  //       .then((Response) => {
-  //         console.log(Response);
-  //       });
-  //   }, []);
+  const handelChange = (event) => {
+    setTetherValues({
+      ...tetherValues, // Here, we keep the original array, and next we just update the parts we need (we have just one field yet, so we shouldnt copy original array here)
+      [event.target.name]: event.target.value,
+      // [event.target.name]: addCommas(removeNonNumeric(event.target.value)), // Here, we create an object and push it to array
+    });
+  };
+
+  const handelSubmit = (event) => {
+    event.preventDefault();
+    setErrors(tetherValidate(tetherValues));
+    setIsSubmitting(true);
+  };
+  useEffect(() => {
+    //Check if there is no error and then call th callback()
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      submit();
+    }
+  }, [errors]);
 
   function submit() {
-    console.log("submited");
+    const auth = localStorage.getItem("accessToken");
+    const subData = {
+      id: 0,
+      tetherRialValue: tetherValues.tetherValue * 10,
+    };
+
+    axios({
+      method: "post",
+      url: "https://coinbit-backend.com/api/Config/updateconfig",
+      data: JSON.stringify(subData),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${auth}`,
+      },
+    }).then(() => {
+      setMessage("تغییرات با موفقیت ثبت شد!");
+      setInterval(() => {
+        window.location.reload(false);
+      }, 3000);
+    });
   }
   return (
     <div className="admin-panel-side-navbar">
@@ -39,6 +68,7 @@ function TetherPageForm() {
               <h1>صفحه ویرایش قیمت تتر</h1>
             </Row>
             <Row>
+              {message && <p>{message}</p>}
               <Form
                 onSubmit={handelSubmit}
                 className="tetherPriceForm"
@@ -50,9 +80,14 @@ function TetherPageForm() {
                     className={`${errors.tetherValue && "innputError"}`}
                     type="text"
                     name="tetherValue"
-                    placeholder="ارزش تتر به تومان"
+                    placeholder={
+                      "" +
+                      (props.tetherRialValue / 10) // this two line trick change int to string
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    }
                     onChange={handelChange}
-                    value={values.tetherValue}
+                    value={tetherValues.tetherValue}
                     autoComplete="off"
                     autoFocus={true}
                   />
