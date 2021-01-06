@@ -20,7 +20,7 @@ function SignIn() {
   const [UserName, setUserName] = useState("");
   const [Password, setPassword] = useState("");
   const [errorMessage, seterrorMessage] = useState("");
-  const [Reload, setReload] = useState(false);
+  const [, setReload] = useState(false);
 
   const setuserName = (e) => {
     setUserName(e.target.value);

@@ -28,7 +28,6 @@ function Crypto() {
   //   createDate: "",
   //   seriesDate: "",
   // });
-  const SelectedCoins = [];
 
   const setSelect = (e) => {
     console.log(e);
@@ -77,6 +76,7 @@ function Crypto() {
         }, 60000);
         return () => clearInterval(Interval);
       });
+    // eslint-disable-next-line
   }, []);
   return (
     <>

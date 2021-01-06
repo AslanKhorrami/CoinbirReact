@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect, NavLink } from "react-router-dom";
 
 function UserDashboardNav() {
-  const [Reload, setReload] = useState(false);
+  const [, setReload] = useState(false);
 
   function logout() {
     localStorage.removeItem("token");

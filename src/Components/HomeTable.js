@@ -27,6 +27,7 @@ function HomeTable() {
         });
     }, 60000);
     return () => clearInterval(Interval);
+    // eslint-disable-next-line
   }, []);
 
   return (

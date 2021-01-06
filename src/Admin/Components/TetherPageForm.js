@@ -32,7 +32,8 @@ function TetherPageForm(props) {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       submit();
     }
-  }, [errors]);
+    // eslint-disable-next-line
+  }, [errors, isSubmitting]);
 
   function submit() {
     const auth = localStorage.getItem("accessToken");

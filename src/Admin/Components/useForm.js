@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const useForm = (callback, Validate) => {
   const [loginValues, setLoginValues] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
-  const [loginErrors, setLoginErrors] = useState({});
+  // const [loginErrors, setLoginErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handelChange = (event) => {
@@ -23,16 +23,17 @@ const useForm = (callback, Validate) => {
   };
 
   // Formatting input number
-  const addCommas = (num) =>
-    num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const removeNonNumeric = (num) => num.toString().replace(/[^0-9]/g, "");
+  // const addCommas = (num) =>
+  //   num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // const removeNonNumeric = (num) => num.toString().replace(/[^0-9]/g, "");
 
   useEffect(() => {
     //Check if there is no error and then call th callback()
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
-  }, [errors]);
+    // eslint-disable-next-line
+  }, [errors, isSubmitting]);
 
   return {
     handelChange,
