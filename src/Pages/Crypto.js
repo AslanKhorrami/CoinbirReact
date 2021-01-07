@@ -7,77 +7,16 @@ import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 
 function Crypto() {
-  const CRYPTO_PAGE_API = process.env.REACT_APP_CRYPTO_PAGE_API;
-
   const [AllCoins, SetAllCoins] = useState([]);
-  // const [SelectedCoins, setSelectedCoins] = useState({
-  //   id: "",
-  //   coinId: "",
-  //   name: "",
-  //   symbol: "",
-  //   ranking: "",
-  //   price: "",
-  //   volume24hUsd: "",
-  //   marketCapUsd: "",
-  //   percentChange1h: "",
-  //   percentChange24h: "",
-  //   percentChange7d: "",
-  //   lastUpdated: "",
-  //   marketCapConvert: "",
-  //   convertCurrency: "",
-  //   createDate: "",
-  //   seriesDate: "",
-  // });
-
-  const setSelect = (e) => {
-    console.log(e);
-    // e.map((i) => {
-    //   if (i.id === 131101) {
-    //     SelectedCoins.push({
-    //       id: i.id,
-    //       coinId: i.coinId,
-    //       name: i.name,
-    //       symbol: i.symbol,
-    //       ranking: i.ranking,
-    //       price: i.price,
-    //       volume24hUsd: i.volume24hUsd,
-    //       marketCapUsd: i.marketCapUsd,
-    //       percentChange1h: i.percentChange1h,
-    //       percentChange24h: i.percentChange24h,
-    //       percentChange7d: i.percentChange7d,
-    //       lastUpdated: i.lastUpdated,
-    //       marketCapConvert: i.marketCapConvert,
-    //       convertCurrency: i.convertCurrency,
-    //       createDate: i.createDate,
-    //       seriesDate: i.seriesDate,
-    //     });
-    //   }
-    // });
-  };
 
   useEffect(() => {
-    console.log(CRYPTO_PAGE_API);
-    axios
-      .get(CRYPTO_PAGE_API, { Accept: "application/json" })
-      .then(Response.JSON)
-      .then((Response) => {
-        SetAllCoins(Response.data);
-        console.log(AllCoins);
-        setSelect(Response.data);
-        const Interval = setInterval(() => {
-          axios
-            .get(CRYPTO_PAGE_API)
-            .then(Response.JSON)
-            .then((Response) => {
-              SetAllCoins(Response.data);
-              console.log(AllCoins);
-              setSelect(Response.data);
-            });
-        }, 60000);
-        return () => clearInterval(Interval);
-      });
-    // eslint-disable-next-line
-  }, []);
+    axios({
+      method: "get",
+      url: "https://coinbit-backend.com/api/Coin/get",
+    }).then((Response) => {
+      SetAllCoins(Response.data);
+    });
+  }, [AllCoins]);
   return (
     <>
       <NavBar />
@@ -131,7 +70,16 @@ function Crypto() {
                         displayType={"text"}
                       />
                     </td>
-                    <td className="center-align"></td>
+                    <td className="center-align">
+                      <NumberFormat
+                        value={(
+                          (coin.price * coin.tetherPriceInRial) /
+                          10
+                        ).toFixed(0)}
+                        thousandSeparator={","}
+                        displayType={"text"}
+                      />
+                    </td>
                     <td
                       className={`center-align ltr ${
                         coin.percentChange1h > 0 ? "positive" : "negetive"
