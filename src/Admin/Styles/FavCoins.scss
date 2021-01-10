@@ -3,6 +3,10 @@
   list-style-type: none;
   width: 100%;
   padding-right: 0;
+  img {
+    margin-left: 5px;
+    width: 40px;
+  }
 }
 .searchCoins {
   width: 100%;
@@ -11,4 +15,8 @@
 .col-lg-6 {
   padding-left: 0;
   padding-right: 0;
+}
+
+.coinLogo {
+  margin-left: 5px;
 }

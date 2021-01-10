@@ -106,6 +106,10 @@ function FavCoins() {
                       {filteredCoins.map((coin, idx) => (
                         <ul key={idx} className="filteredCoins">
                           <li onClick={itemSelect} value={coin.coinId}>
+                            <img
+                              src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.coinId}.png`}
+                              alt={`${coin.name}`}
+                            />
                             {coin.name}
                           </li>
                         </ul>
@@ -127,7 +131,14 @@ function FavCoins() {
                             {favCoins.map((favcoin, idx) => (
                               <tr key={favcoin.coinId}>
                                 <th scope="row">{idx + 1}</th>
-                                <td>{favcoin.name}</td>
+                                <td>
+                                  <img
+                                    src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${favcoin.coinId}.png`}
+                                    alt={`${favcoin.name}`}
+                                    className="coinLogo"
+                                  />
+                                  {favcoin.name}
+                                </td>
                                 <td>
                                   <button
                                     onClick={deleteCoinHandeler}
