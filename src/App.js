@@ -37,12 +37,14 @@ import UploadedDocuments from "./Admin/Pages/UploadedDocuments";
 import Tickets from "./Admin/Pages/Tickets";
 import FavCoins from "./Admin/Pages/FavCoins";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ScrollToTop from "./Admin/Components/ScrollToTop";
 
 function App() {
   return (
     <div>
       <ScrollUpButton />
       <Router>
+        <ScrollToTop />
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
           <Route path="/about" component={About}></Route>
