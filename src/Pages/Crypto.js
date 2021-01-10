@@ -58,7 +58,7 @@ function Crypto() {
                     <td>
                       <img
                         src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.coinId}.png`}
-                        alt={`${coin.Name}`}
+                        alt={`${coin.name}`}
                       />
                       &nbsp; {coin.name}
                     </td>

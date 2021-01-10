@@ -4,31 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NumberFormat from "react-number-format";
 
 function HomeTable() {
-  const HOMETABLE_API = process.env.REACT_APP_HOMETABLE_API;
-
   const [Coins, SetCoins] = useState([]);
 
   useEffect(() => {
-    // console.log(HOMETABLE_API)
-    axios
-      .get(HOMETABLE_API)
-      .then(Response.JSON)
-      .then((Response) => {
-        SetCoins(JSON.parse(Response.data));
-        console.log(JSON.parse(Response.data));
-      });
-    const Interval = setInterval(() => {
-      axios
-        .get(HOMETABLE_API)
-        .then(Response.JSON)
-        .then((Response) => {
-          SetCoins(JSON.parse(Response.data));
-          console.log(JSON.parse(Response.data));
-        });
-    }, 60000);
-    return () => clearInterval(Interval);
-    // eslint-disable-next-line
-  }, []);
+    axios({
+      method: "get",
+      url: "https://coinbit-backend.com/api/Coin/getfav",
+    }).then((Response) => {
+      SetCoins(Response.data);
+    });
+  }, [Coins]);
 
   return (
     <div className="row">
@@ -65,75 +50,82 @@ function HomeTable() {
           </thead>
           <tbody>
             {Coins.map((coin, idx) => (
-              <tr key={idx}>
+              <tr key={coin.coinId}>
                 <th scope="row">{idx + 1} </th>
                 <td className="CoinName">
                   <img
-                    // key={coin.id}
-                    src={require(`../Images/HomeTable/${coin.Name}.png`)}
+                    src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.coinId}.png`}
                     alt={`${coin.Name}`}
                   />
-                  &nbsp; <span className="Symbol">{coin.Symbol}</span>{" "}
-                  {coin.Name}
+                  &nbsp; <span className="Symbol">{coin.symbol}</span>{" "}
+                  {coin.name}
                 </td>
                 <td className="center-align">
                   <NumberFormat
-                    value={coin.Price.toFixed(2)}
+                    value={coin.price.toFixed(2)}
                     thousandSeparator={","}
                     displayType={"text"}
                   />
                 </td>
-                <td className="center-align"></td>
+                <td className="center-align">
+                  <NumberFormat
+                    value={((coin.price * coin.tetherPriceInRial) / 10).toFixed(
+                      0
+                    )}
+                    thousandSeparator={","}
+                    displayType={"text"}
+                  />
+                </td>
                 <td
                   className={`center-align ltr ${
-                    coin.PercentChange1h > 0 ? "positive" : "negetive"
+                    coin.percentChange1h > 0 ? "positive" : "negetive"
                   }`}
                 >
                   <FontAwesomeIcon
                     icon="long-arrow-alt-up"
-                    className={`${coin.PercentChange1h > 0 ? "show" : "hide"}`}
+                    className={`${coin.percentChange1h > 0 ? "show" : "hide"}`}
                   />{" "}
                   &nbsp;
                   <FontAwesomeIcon
                     icon="long-arrow-alt-down"
-                    className={`${coin.PercentChange1h < 0 ? "show" : "hide"}`}
+                    className={`${coin.percentChange1h < 0 ? "show" : "hide"}`}
                   />{" "}
                   &nbsp;
-                  {coin.PercentChange1h.toFixed(2)}
+                  {coin.percentChange1h.toFixed(2)}
                 </td>
                 <td
                   className={`center-align ltr TabletView ${
-                    coin.PercentChange24h > 0 ? "positive" : "negetive"
+                    coin.percentChange24h > 0 ? "positive" : "negetive"
                   }`}
                 >
                   <FontAwesomeIcon
                     icon="long-arrow-alt-up"
-                    className={`${coin.PercentChange24h > 0 ? "show" : "hide"}`}
+                    className={`${coin.percentChange24h > 0 ? "show" : "hide"}`}
                   />{" "}
                   &nbsp;
                   <FontAwesomeIcon
                     icon="long-arrow-alt-down"
-                    className={`${coin.PercentChange24h < 0 ? "show" : "hide"}`}
+                    className={`${coin.percentChange24h < 0 ? "show" : "hide"}`}
                   />{" "}
                   &nbsp;
-                  {coin.PercentChange24h.toFixed(2)}
+                  {coin.percentChange24h.toFixed(2)}
                 </td>
                 <td
                   className={`center-align ltr TabletView ${
-                    coin.PercentChange7d > 0 ? "positive" : "negetive"
+                    coin.percentChange7d > 0 ? "positive" : "negetive"
                   }`}
                 >
                   <FontAwesomeIcon
                     icon="long-arrow-alt-up"
-                    className={`${coin.PercentChange7d > 0 ? "show" : "hide"}`}
+                    className={`${coin.percentChange7d > 0 ? "show" : "hide"}`}
                   />{" "}
                   &nbsp;
                   <FontAwesomeIcon
                     icon="long-arrow-alt-down"
-                    className={`${coin.PercentChange7d < 0 ? "show" : "hide"}`}
+                    className={`${coin.percentChange7d < 0 ? "show" : "hide"}`}
                   />{" "}
                   &nbsp;
-                  {coin.PercentChange7d.toFixed(2)}
+                  {coin.percentChange7d.toFixed(2)}
                 </td>
                 <td className="BuySellButtons">
                   <button className="BuyButton">
@@ -150,15 +142,6 @@ function HomeTable() {
           </tbody>
         </table>
       </div>
-      {Coins.map((coin, idx) => {
-        if (idx === 0) {
-          return (
-            <p className="left-align">
-              آخرین به روز رسانی قیمت ها: {coin.TimeFa} {coin.DateFa}
-            </p>
-          );
-        } else return null;
-      })}
     </div>
   );
 }
