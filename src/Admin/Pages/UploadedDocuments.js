@@ -3,6 +3,7 @@ import SideNavBar from "../Components/SideNavBar";
 import "../Styles/AdminPanelArea.scss";
 import { Container, Row, Col } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import TopBar from "../Components/topBar";
 
 function UploadedDocuments() {
   function isAuthenicated() {
@@ -26,6 +27,7 @@ function UploadedDocuments() {
                 <SideNavBar />
               </Col>
               <Col lg="10" className="AdminPanelArea">
+                <TopBar />
                 <h1>صفحه تصاویر بارگذاری شده</h1>
               </Col>
             </Row>

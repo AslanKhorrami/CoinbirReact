@@ -3,6 +3,7 @@ import SideNavBar from "../Components/SideNavBar";
 import "../Styles/AdminPanelArea.scss";
 import { Container, Row, Col } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import TopBar from "../Components/topBar";
 
 function UserSalesFactorManagement() {
   function isAuthenicated() {
@@ -26,6 +27,7 @@ function UserSalesFactorManagement() {
                 <SideNavBar />
               </Col>
               <Col lg="10" className="AdminPanelArea">
+                <TopBar />
                 <h1>فاکتورهای خرید</h1>
               </Col>
             </Row>

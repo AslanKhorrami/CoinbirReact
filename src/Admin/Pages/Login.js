@@ -27,6 +27,7 @@ function Login() {
       .then((Response) => {
         localStorage.setItem("accessToken", Response.data.accessToken);
         localStorage.setItem("role", Response.data.role);
+        localStorage.setItem("username", Response.data.username);
         setReload(true);
       })
       .catch((error) => {

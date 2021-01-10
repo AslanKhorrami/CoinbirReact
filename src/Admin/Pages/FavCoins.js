@@ -5,6 +5,7 @@ import "../Styles/AdminPanelArea.scss";
 import "../Styles/FavCoins.scss";
 import { Container, Row, Col } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import TopBar from "../Components/topBar";
 
 function FavCoins() {
   const [allCoins, setAllCoins] = useState([]);
@@ -89,6 +90,7 @@ function FavCoins() {
                 <SideNavBar />
               </Col>
               <Col lg="10" className="AdminPanelArea">
+                <TopBar />
                 <Row>
                   <h1>صفحه کوین های منتخب</h1>
                 </Row>

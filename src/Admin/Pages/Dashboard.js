@@ -3,6 +3,7 @@ import SideNavBar from "../Components/SideNavBar";
 import "../Styles/AdminPanelArea.scss";
 import { Container, Row, Col } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import TopBar from "../Components/topBar";
 
 function Dashboard() {
   document.title = "داشبورد ادمین";
@@ -28,6 +29,7 @@ function Dashboard() {
                 <SideNavBar />
               </Col>
               <Col lg="10" className="AdminPanelArea">
+                <TopBar />
                 <Row>
                   <p>کاربران جدید امروز: 2 نفر</p>
                 </Row>

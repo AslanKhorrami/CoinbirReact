@@ -4,6 +4,7 @@ import "../Styles/AdminPanelArea.scss";
 import { Container, Row, Col } from "reactstrap";
 import Table from "react-bootstrap/Table";
 import { Redirect } from "react-router-dom";
+import TopBar from "../Components/topBar";
 
 function UserPurchaseFactorManagement() {
   function isAuthenicated() {
@@ -27,6 +28,7 @@ function UserPurchaseFactorManagement() {
                 <SideNavBar />
               </Col>
               <Col lg="10" className="AdminPanelArea">
+                <TopBar />
                 <Row>
                   <h1>فاکتورهای فروش</h1>
                 </Row>

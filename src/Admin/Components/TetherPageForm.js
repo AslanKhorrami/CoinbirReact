@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import SideNavBar from "../Components/SideNavBar";
 import tetherValidate from "../Functions/ValidateTetherPrice";
+import TopBar from "../Components/topBar";
 
 function TetherPageForm(props) {
   const [errors, setErrors] = useState({});
@@ -65,6 +66,7 @@ function TetherPageForm(props) {
             <SideNavBar />
           </Col>
           <Col lg="10" className="AdminPanelArea">
+            <TopBar />
             <Row>
               <h1>صفحه ویرایش قیمت تتر</h1>
             </Row>
