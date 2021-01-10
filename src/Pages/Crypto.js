@@ -56,11 +56,10 @@ function Crypto() {
                   <tr key={coin.id}>
                     <th scope="row">{idx + 1} </th>
                     <td>
-                      {/* <img
-                      //   key={coin.id}
-                      src={require(`../Images/AllCrypto/${coin.Name}.png`)}
-                      alt={`${coin.Name}`}
-                    /> */}
+                      <img
+                        src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.coinId}.png`}
+                        alt={`${coin.Name}`}
+                      />
                       &nbsp; {coin.name}
                     </td>
                     <td className="center-align">
