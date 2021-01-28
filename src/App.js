@@ -38,6 +38,8 @@ import Tickets from "./Admin/Pages/Tickets";
 import FavCoins from "./Admin/Pages/FavCoins";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./Admin/Components/ScrollToTop";
+import CreateAdmin from "./Admin/Pages/CreateAdmin";
+import SetPassword from "./Components/SetPassword";
 
 function App() {
   return (
@@ -103,6 +105,8 @@ function App() {
           ></Route>
           <Route path="/admin/tickets" component={Tickets}></Route>
           <Route path="/admin/fav-coins" component={FavCoins}></Route>
+          <Route path="/admin/create-admin" component={CreateAdmin}></Route>
+          <Route path="/setpassword" component={SetPassword}></Route>
         </Switch>
       </Router>
     </div>

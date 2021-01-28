@@ -118,6 +118,13 @@ function SideNavBar() {
         >
           کوین های منتخب
         </NavLink>
+        <NavLink
+          to="/admin/create-admin"
+          className="nav-link"
+          activeClassName="admin-active-link"
+        >
+          ایجاد ادمین جدید
+        </NavLink>
       </Nav>
     </Navbar>
   );

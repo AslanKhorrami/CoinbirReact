@@ -6,6 +6,8 @@ function UserDashboardNav() {
 
   function logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("statusId");
     setReload(true); //makes dom to reload the render method and then redirect to specific route
   }
 

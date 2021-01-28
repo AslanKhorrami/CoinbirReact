@@ -17,6 +17,8 @@ import {
 function SignIn() {
   document.title = "ورود کاربران";
 
+  localStorage.removeItem("Mobile No.")
+
   const [UserName, setUserName] = useState("");
   const [Password, setPassword] = useState("");
   const [errorMessage, seterrorMessage] = useState("");
@@ -34,7 +36,7 @@ function SignIn() {
     e.preventDefault();
     const temp = axios({
       method: "post",
-      url: "https://marshalbackend.com/coinbit/token",
+      url: "https://coinbit-backend.com/api/Account/login",
       data: {
         username: UserName,
         password: Password,
@@ -45,7 +47,9 @@ function SignIn() {
     })
       .then(Response.JSON)
       .then((Response) => {
-        localStorage.setItem("token", Response.data.access_token);
+        localStorage.setItem("token", Response.data.accessToken);
+        localStorage.setItem("role", Response.data.role);
+        localStorage.setItem("statusId", Response.data.statusId);
         setReload(true); //makes dom to reload the render method and then redirect to specific route
         //   // console.log(Response.data.access_token);
         //   // alert("ورود انجام شد");
