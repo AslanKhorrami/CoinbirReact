@@ -63,7 +63,8 @@ function SignIn() {
 
   function isAuthenicated() {
     const token = localStorage.getItem("token");
-    if (token && token.length > 10) {
+    const role = localStorage.getItem("role")
+    if (token && token.length > 10 && role === "customer") {
       return true;
     }
     // return token && token.length > 10;
