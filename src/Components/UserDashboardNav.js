@@ -5,14 +5,12 @@ function UserDashboardNav() {
   const [, setReload] = useState(false);
 
   function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    localStorage.removeItem("statusId");
+    localStorage.removeItem("userData");
     setReload(true); //makes dom to reload the render method and then redirect to specific route
   }
 
   function isAuthenicated() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("userData");
     if (token && token.length > 10) {
       return true;
     }
@@ -110,7 +108,7 @@ function UserDashboardNav() {
             </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="#" onClick={logout}>
+            <Link className="nav-link" to="/" onClick={logout}>
               خروج
             </Link>
           </li>

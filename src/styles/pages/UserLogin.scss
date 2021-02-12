@@ -1,0 +1,91 @@
+@media (max-width: 575.98px) {
+  .SignIn {
+    margin: 10vh 0;
+    .col-lg-6 {
+      max-width: 80%;
+      form {
+        div {
+          label {
+            font-size: 5vh;
+          }
+        }
+      }
+    }
+    .SigninImage {
+      width: 60vh;
+      display: none;
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .SignIn {
+    margin: 10vh 0;
+    .col-lg-6 {
+      max-width: 80%;
+      form {
+        div {
+          label {
+            font-size: 5vh;
+          }
+        }
+      }
+    }
+    .SigninImage {
+      width: 60vh;
+      display: none;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .SignIn {
+    margin: 10vh 0;
+    .col-lg-6 {
+      max-width: 80%;
+      form {
+        div {
+          label {
+            font-size: 5vh;
+          }
+        }
+      }
+    }
+    .SigninImage {
+      width: 60vh;
+      display: none;
+    }
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .SignIn {
+    margin: 10vh 0;
+    .col-lg-6 {
+      form {
+        div {
+          label {
+            font-size: 3vh;
+          }
+        }
+      }
+    }
+    .SigninImage {
+      width: 60vh;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .SignIn {
+    margin: 10vh 0;
+    .col-lg-6 {
+      form {
+        div {
+          label {
+            font-size: 3vh;
+          }
+        }
+      }
+    }
+    .SigninImage {
+      width: 60vh;
+    }
+  }
+}

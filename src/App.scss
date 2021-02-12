@@ -41,18 +41,25 @@ body {
   text-align: right;
   font-family: "B-Nazanin";
   // background-image: url("./Images/body-background.jpg");
-  background-image: url("./Images/1.png");
-  background-color: rgba(0, 0, 0, 0.5);
-  background-size: 100%;
+  // background-image: url("./Images/1.png");
+  background-color: rgba(0, 0, 0, 0.7);
+  // background-size: 100%;
 }
 
 .row {
   margin: 0;
   padding: 0;
 }
-
+/* import Components */
 @import "./styles/components/SkewClockwise.scss";
 @import "./styles/components/SkewCounterClockwise.scss";
+@import "./styles/components/Footer.scss";
+@import "./styles/components/UserIDCardUploader";
+@import "./styles/components/RegistrationUploadImages.scss";
+@import "./styles/components/SetPassword.scss";
+
+@import "./styles/pages/UserRegister.scss";
+@import "./styles/pages/UserLogin.scss";
 
 /* User Panel */
 @import "./styles/pages/UserPanelGlobals.scss";

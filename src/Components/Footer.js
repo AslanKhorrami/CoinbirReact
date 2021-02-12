@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../styles/components/Footer.scss";
 
 class Footer extends React.Component {
   render() {
@@ -8,13 +9,13 @@ class Footer extends React.Component {
       <footer>
         <Container fluid={true}>
           <Row>
-            <Col lg="4">
+            <Col lg="4" md="3" sm="6">
               <img
                 src={require("../Images/Logos/logo.coinbit.e.png")}
                 alt="CoinBitLogo"
               />
             </Col>
-            <Col lg="2">
+            <Col lg="2" md="2" sm="6">
               <h5>لینک های مفید</h5>
               <a href="/about" rel="noopener noreferrer">
                 درباره ما
@@ -39,7 +40,7 @@ class Footer extends React.Component {
               <br />
               <a href="#">ماشین حساب استخراج</a> */}
             </Col>
-            <Col lg="2">
+            <Col lg="2" md="2" sm="6">
               <h5>شبکه های اجتماعی ما</h5>
               <p>
                 ما را در شبکه های اجتماعی نیز دنبال کنین تا از آخرین اخبار و
@@ -70,12 +71,12 @@ class Footer extends React.Component {
                 </a>
               </Row>
             </Col>
-            <Col lg="2">
+            <Col lg="2" md="2" sm="6">
               <h5> خدمات ما</h5>
               {/* <a href="#">ماشین حساب ماینینگ</a> */}
               <p>ماشین حساب استخراج</p>
             </Col>
-            <Col lg="2">
+            <Col lg="2" md="2" sm="6">
               <h5>راهنمای سایت</h5>
               <p>نحوه ثبت نام</p>
               <p>تکمیل مدارک ثبت نام</p>

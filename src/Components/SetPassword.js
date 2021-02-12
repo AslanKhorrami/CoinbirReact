@@ -5,12 +5,15 @@ import axios from "axios";
 import {
   Container,
   Row,
+  Col,
   Form,
   FormGroup,
   Button,
   Input,
   Label,
 } from "reactstrap";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 function SetPassword() {
   document.title = "انتخاب رمز عبور";
@@ -85,44 +88,63 @@ function SetPassword() {
           {redirect ? (
             <Redirect to={{ pathname: "/log-in" }} />
           ) : (
-            <Container>
-              <Row>
-                {message && <p style={{ color: "red" }}>{message}</p>}
-                <Form onSubmit={handelSubmit} noValidate>
-                  <FormGroup>
-                    <Label for="Password">رمز عبور</Label>
-                    <Input
-                      type="password"
-                      name="Password"
-                      id="Password"
-                      placeholder="رمز عبور خود را انتخاب کنید (الزامی)"
-                      onChange={handelChange}
-                      autoComplete="none"
-                      autoFocus={true}
-                    ></Input>
-                    {errors.Password && (
-                      <p style={{ color: "red" }}>{errors.Password}</p>
+            <div>
+              <NavBar />
+              <Container className="setPassword">
+                <Row>
+                  <Col lg={6}>
+                    <img
+                      src={require("../Images/SignUp/signup.png")}
+                      alt="Sign-up-Logo"
+                      className="SignupImage"
+                    ></img>
+                  </Col>
+                  <Col lg={6}>
+                    {message && (
+                      <p style={{ color: "red", marginTop: "5px" }}>
+                        {message}
+                      </p>
                     )}
-                  </FormGroup>
-                  <FormGroup>
-                    <Label for="Password2">نام خانوادگی</Label>
-                    <Input
-                      type="password"
-                      name="Password2"
-                      id="Password2"
-                      placeholder="رمز عبور خود  را تکرار کنید (الزامی)"
-                      onChange={handelChange}
-                      autoComplete="none"
-                    ></Input>
-                    {errors.Password2 && (
-                      <p style={{ color: "red" }}>{errors.Password2}</p>
-                    )}
-                  </FormGroup>
+                    <Form onSubmit={handelSubmit} noValidate>
+                      <FormGroup>
+                        <Label for="Password">رمز عبور</Label>
+                        <Input
+                          type="password"
+                          name="Password"
+                          id="Password"
+                          placeholder="رمز عبور خود را انتخاب کنید (الزامی)"
+                          onChange={handelChange}
+                          autoComplete="none"
+                          autoFocus={true}
+                        ></Input>
+                        {errors.Password && (
+                          <p style={{ color: "red", marginTop: "5px" }}>
+                            {errors.Password}
+                          </p>
+                        )}
+                      </FormGroup>
+                      <FormGroup>
+                        <Label for="Password2">نام خانوادگی</Label>
+                        <Input
+                          type="password"
+                          name="Password2"
+                          id="Password2"
+                          placeholder="رمز عبور خود  را تکرار کنید (الزامی)"
+                          onChange={handelChange}
+                          autoComplete="none"
+                        ></Input>
+                        {errors.Password2 && (
+                          <p style={{ color: "red" }}>{errors.Password2}</p>
+                        )}
+                      </FormGroup>
 
-                  <Button>ذخیره</Button>
-                </Form>
-              </Row>
-            </Container>
+                      <Button>ذخیره</Button>
+                    </Form>
+                  </Col>
+                </Row>
+              </Container>
+              <Footer />
+            </div>
           )}
         </div>
       ) : (

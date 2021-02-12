@@ -1,0 +1,208 @@
+@media (max-width: 575.98px) {
+  .Register {
+    margin: 10vh 0;
+    .col-lg-6 {
+      form {
+        div {
+          label {
+            font-size: 5vh;
+          }
+        }
+      }
+    }
+    .SignupImage {
+      width: 60vh;
+      display: none;
+    }
+  }
+  .SignIn {
+    .Register {
+      .col-lg-6 {
+        max-width: 80%;
+      }
+    }
+  }
+  .modal-header {
+    display: block;
+    text-align: center;
+    button {
+      position: absolute;
+      top: 3vh;
+      left: 3vh;
+      font-size: 40px;
+    }
+  }
+  .modal-body {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    input {
+      margin: 3vh;
+      padding: 5px;
+    }
+    h3 {
+      font-size: 15px;
+    }
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .Register {
+    margin: 10vh 0;
+    .col-lg-6 {
+      form {
+        div {
+          label {
+            font-size: 5vh;
+          }
+        }
+      }
+    }
+    .SignupImage {
+      width: 60vh;
+      display: none;
+    }
+  }
+  .SignIn {
+    .Register {
+      .col-lg-6 {
+        max-width: 80%;
+      }
+    }
+  }
+  .modal-header {
+    display: block;
+    text-align: center;
+    button {
+      position: absolute;
+      top: 3vh;
+      left: 3vh;
+      font-size: 40px;
+    }
+  }
+  .modal-body {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    input {
+      margin: 3vh;
+      padding: 5px;
+    }
+    h3 {
+      font-size: 17px;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .Register {
+    margin: 10vh 0;
+    .col-lg-6 {
+      form {
+        div {
+          label {
+            font-size: 5vh;
+          }
+        }
+      }
+    }
+    .SignupImage {
+      width: 60vh;
+      display: none;
+    }
+  }
+  .SignIn {
+    .Register {
+      .col-lg-6 {
+        max-width: 80%;
+      }
+    }
+  }
+  .modal-header {
+    display: block;
+    text-align: center;
+    button {
+      position: absolute;
+      top: 3vh;
+      left: 3vh;
+      font-size: 40px;
+    }
+  }
+  .modal-body {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    input {
+      margin: 3vh;
+      padding: 5px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .Register {
+    margin: 10vh 0;
+    .col-lg-6 {
+      form {
+        div {
+          label {
+            font-size: 4vh;
+          }
+        }
+      }
+    }
+    .SignupImage {
+      width: 60vh;
+    }
+  }
+  .modal-header {
+    display: block;
+    text-align: center;
+    button {
+      position: absolute;
+      top: 3vh;
+      left: 3vh;
+      font-size: 40px;
+    }
+  }
+  .modal-body {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    input {
+      margin: 3vh;
+      padding: 5px;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .Register {
+    margin: 10vh 0;
+    .col-lg-6 {
+      form {
+        div {
+          label {
+            font-size: 3vh;
+          }
+        }
+      }
+    }
+    .SignupImage {
+      width: 60vh;
+    }
+  }
+  .modal-header {
+    display: block;
+    text-align: center;
+    button {
+      position: absolute;
+      top: 3vh;
+      left: 3vh;
+      font-size: 40px;
+    }
+  }
+  .modal-body {
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    input {
+      margin: 3vh;
+      padding: 5px;
+    }
+  }
+}

@@ -3,6 +3,16 @@ import Toggler from "./Toggler";
 import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
+  const localData = localStorage.getItem("userData");
+
+  function isAuthenicated() {
+    if (localData) {
+      return true;
+    }
+  }
+
+  const isAlreadyAuthennicated = isAuthenicated();
+
   const [navbar, setNavbar] = useState(false);
 
   const ChangeBackground = () => {
@@ -65,31 +75,42 @@ function NavBar() {
               تماس با ما
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink
-              className="nav-link"
-              to="/dashboard"
-              activeClassName="active"
-            >
-              پنل کاربری
-            </NavLink>
-          </li>
         </ul>
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <NavLink
-              className="nav-link"
-              to="/register"
-              activeClassName="active"
-            >
-              ثبت نام
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/log-in" activeClassName="active">
-              ورود
-            </NavLink>
-          </li>
+          {!isAlreadyAuthennicated && (
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/register"
+                activeClassName="active"
+              >
+                ثبت نام
+              </NavLink>
+            </li>
+          )}
+          {!isAlreadyAuthennicated && (
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/log-in"
+                activeClassName="active"
+              >
+                ورود
+              </NavLink>
+            </li>
+          )}
+
+          {isAlreadyAuthennicated && (
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/dashboard"
+                activeClassName="active"
+              >
+                پنل کاربری
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

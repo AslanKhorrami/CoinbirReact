@@ -1,75 +1,77 @@
-import React from "react";
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
-import { Col, Container, Row } from "reactstrap";
-import UserDashboardNav from "../Components/UserDashboardNav";
+import React, { useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import RegistrationPersonalInfoForm from "../Components/RegistrationPersonalInfoForm";
+import RegistrationUploadImages from "../Components/RegistrationUploadImages";
+import ActiveUserPurchases from "../Components/ActiveUserPurchases";
+import UserApproval from "../Components/UserApproval";
+import axios from "axios";
 
 function UserPurchases() {
+  document.title = "خریدهای من";
+
+  localStorage.removeItem("Mobile No.");
+
+  let localData = localStorage.getItem("userData");
+
+  const parsedLocalData = JSON.parse(localData);
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://coinbit-backend.com/api/Customer/get",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localData).accessToken}`,
+      },
+    }).then((Response) => {
+      // console.log(Response.data.data);
+      if (Response.data.data.statusId !== JSON.parse(localData).statusId) {
+        // JSON.parse(localData).statusId = Response.data.statusId;
+        const x = JSON.parse(localData);
+        x.statusId = Response.data.data.statusId;
+        // localData = JSON.stringify(x);
+        localStorage.setItem("userData", JSON.stringify(x));
+        window.location.reload();
+      }
+      if (Response.data.data.fatherName !== JSON.parse(localData).fatherName) {
+        // JSON.parse(localData).statusId = Response.data.statusId;
+        const x = JSON.parse(localData);
+        x.fatherName = Response.data.data.fatherName;
+        // localData = JSON.stringify(x);
+        localStorage.setItem("userData", JSON.stringify(x));
+        window.location.reload();
+      }
+    });
+    return () => {};
+  }, [localData]);
+
+  function loadedLocalData() {
+    if (localData) {
+      return true;
+    }
+  }
+
+  const isLoaded = loadedLocalData();
+
   return (
     <div>
-      <NavBar />
-      <Container fluid={true} className="dashboard-container">
-        <Row className="dashboard">
-          <Col lg="3" className="dashboard-nav">
-            <UserDashboardNav></UserDashboardNav>
-          </Col>
-          <Col lg="9" className="dashboard-area">
-            <Row>
-              <h1>خریدهای من</h1>
-            </Row>
-            <Row>
-              <div className="table-responsive">
-                <table className="table table-hover">
-                  <thead className="thead-dark">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">نام ارز</th>
-                      <th scope="col">قیمت لحظه ای هر واحد ارز</th>
-                      <th scope="col">مقدار</th>
-                      <th scope="col">مبلغ پرداخت شده</th>
-                      <th scope="col">تاریخ خرید</th>
-                      <th scope="col">ساعت خرید</th>
-                      <th scope="col">وضعیت</th>
-                      <th scope="col">کد رهگیری</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>ملت</td>
-                      <td>1234567890123456</td>
-                      <td>12345678901234567890</td>
-                      <td>1400-04</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>ملت</td>
-                      <td>1234567890123456</td>
-                      <td>12345678901234567890</td>
-                      <td>1400-04</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>ملت</td>
-                      <td>1234567890123456</td>
-                      <td>12345678901234567890</td>
-                      <td>1400-04</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>ملت</td>
-                      <td>1234567890123456</td>
-                      <td>12345678901234567890</td>
-                      <td>1400-04</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-      <Footer />
+      {isLoaded ? (
+        <div>
+          {parsedLocalData.statusId === 1 &&
+            parsedLocalData.fatherName === null && (
+              <RegistrationPersonalInfoForm />
+            )}
+          {parsedLocalData.statusId === 1 &&
+            parsedLocalData.fatherName !== null &&
+            parsedLocalData.idcardpic === null && <RegistrationUploadImages />}
+          {parsedLocalData.statusId === 1 &&
+            parsedLocalData.fatherName !== null &&
+            parsedLocalData.idcardpic !== null && <UserApproval />}
+          {parsedLocalData.statusId === 2 && <ActiveUserPurchases />}
+        </div>
+      ) : (
+        <Redirect to={{ pathname: "log-in" }} />
+      )}
     </div>
   );
 }
